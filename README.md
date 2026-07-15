@@ -536,7 +536,6 @@ Aspiring Data Analyst passionate about transforming customer and marketing data 
 ### Connect with Me
 
 **GitHub**
-
 https://github.com/KartikeyaWarhade2002
 
 **LinkedIn**
