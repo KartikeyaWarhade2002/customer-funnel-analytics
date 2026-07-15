@@ -540,8 +540,7 @@ Aspiring Data Analyst passionate about transforming customer and marketing data 
 https://github.com/KartikeyaWarhade2002
 
 **LinkedIn**
-
-https://www.linkedin.com/in/YOUR-LINKEDIN/
+https://www.linkedin.com/in/kartikeya-warhade/
 
 ---
 
