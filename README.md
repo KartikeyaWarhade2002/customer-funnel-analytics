@@ -56,28 +56,31 @@ This project answers key business questions such as:
 
 # 📂 Dataset
 
-**Dataset:** Customer Funnel & Marketing Analytics Dataset
+**Dataset:** Direct-to-Consumer E-Commerce Funnel Dataset
+
+The Direct-to-Consumer (DTC) E-Commerce Funnel Dataset simulates the customer journey across an online retail platform. It captures user interactions from website visits through product views, cart additions, checkout and final purchase, enabling conversion funnel analysis and marketing performance evaluation.
 
 The dataset contains information about:
 
-- Customer Sessions
+- User Sessions
+- Website Visits
+- Product Views
+- Add-to-Cart Events
+- Checkout Activity
+- Purchases
 - Marketing Channels
 - Campaign Types
-- Devices
-- User Types
-- Regional Information
-- Funnel Events
-- Revenue
+- Customer Devices
+- Geographic Regions
 
-### Dataset Highlights
+Dataset Highlights:
 
 - 120,000 Customer Sessions
-- Marketing Attribution Data
-- Customer Funnel Tracking
-- Regional Performance
-- Revenue Information
-- Purchase Conversion Data
-
+- Complete Purchase Funnel
+- Marketing Channel Data
+- Campaign Performance
+- Device Information
+- Customer Journey Tracking
 ---
 
 # 🛠 Tech Stack
