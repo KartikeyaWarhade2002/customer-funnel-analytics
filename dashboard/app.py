@@ -18,30 +18,44 @@ st.set_page_config(
 # Load Data
 # =====================================================
 
-DATA_FILE = Path("data/processed/customer_funnel_clean.csv")
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-df = pd.read_csv(
-    DATA_FILE,
-    parse_dates=["date"]
+DATA_FILE = (
+    BASE_DIR
+    / "data"
+    / "processed"
+    / "customer_funnel_clean.csv"
 )
 
-# =====================================================
-# KPIs
-# =====================================================
+@st.cache_data(show_spinner="Loading dataset...")
+def load_data(path: Path):
 
-total_sessions = len(df)
-product_views = df["viewed_product"].sum()
-add_to_cart = df["added_to_cart"].sum()
-checkouts = df["checkout_started"].sum()
-purchases = df["purchase_completed"].sum()
+    return pd.read_csv(
+        path,
+        parse_dates=["date"]
+    )
 
-conversion_rate = purchases / total_sessions * 100
-total_revenue = df["revenue"].sum()
 
-average_order_value = (
-    df.loc[df["purchase_completed"] == 1, "order_value"]
-    .mean()
-)
+if not DATA_FILE.exists():
+
+    st.error(
+        f"""
+Dataset not found.
+
+Expected location:
+
+{DATA_FILE}
+
+Please ensure customer_funnel_clean.csv exists inside:
+
+data/processed/
+"""
+    )
+
+    st.stop()
+
+
+df = load_data(DATA_FILE)
 
 # =====================================================
 # Sidebar
@@ -79,6 +93,39 @@ df = df[
     (df["region"].isin(region)) &
     (df["user_type"].isin(user_type))
 ]
+
+# =====================================================
+# KPIs
+# =====================================================
+
+total_sessions = len(df)
+
+product_views = df["viewed_product"].sum()
+
+add_to_cart = df["added_to_cart"].sum()
+
+checkouts = df["checkout_started"].sum()
+
+purchases = df["purchase_completed"].sum()
+
+conversion_rate = (
+    purchases /
+    total_sessions * 100
+    if total_sessions > 0
+    else 0
+)
+
+total_revenue = df["revenue"].sum()
+
+average_order_value = (
+    df.loc[
+        df["purchase_completed"] == 1,
+        "order_value"
+    ].mean()
+)
+
+if pd.isna(average_order_value):
+    average_order_value = 0
 
 # =====================================================
 # Title
