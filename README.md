@@ -17,6 +17,12 @@
 
 ---
 
+## 🚀 Live Demo
+🌐*Interactive Streamlit Dashboard:* 
+(https://ecommerce-revenue-analytics.streamlit.app/)
+
+---
+
 # 📌 Project Overview
 
 This project demonstrates a complete end-to-end Data Analytics workflow using a **Customer Funnel & Marketing Analytics Dataset**.
